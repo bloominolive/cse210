@@ -13,9 +13,9 @@ class Program
     }
 
     static void DisplayMessage()
-        {
+    {
         Console.WriteLine("Welcome to the Program!");
-        }
+    }
 
     static string PromptUserName() 
     {
@@ -35,11 +35,10 @@ class Program
     {
         int sqaure = favnumber * favnumber;
         return sqaure;
-
     }
 
     static void DisplayResult(string name, int square)
     {
-    Console.WriteLine($"{name}, the sqaure of your number is {square}");
+        Console.WriteLine($"{name}, the sqaure of your number is {square}");
     }
 }
