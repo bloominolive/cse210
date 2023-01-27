@@ -12,18 +12,31 @@ public class Journal{
 
     public void Save(string fileName){
         String file = @$"{fileName}";
-        String separator = ",";
+        String separator = "|";
         StringBuilder journal = new StringBuilder();
 
         if(!File.Exists(file)){
             String[] headings = { "Date", "Prompt", "Response"};
             journal.AppendLine(string.Join(separator, headings));
+            foreach (Entry entry in _entries)
+            {
+                String[] newLine = { entry._date, entry._prompt, entry._response};
+                journal.AppendLine(string.Join(separator, newLine)); 
+            }
         }
-    
-        foreach (Entry entry in _entries){
-            String[] newLine = { entry._date, entry._prompt, entry._response};
-            journal.AppendLine(string.Join(separator, newLine));
-        }
+        else
+        {
+            var existingText = File.ReadAllText(file);
+            foreach (Entry entry in _entries) {
+                String[] newLine = { entry._date, entry._prompt, entry._response };
+                var lineToAppend = string.Join(separator, newLine);
+                if (!existingText.Contains(lineToAppend)) 
+                {
+                    journal.AppendLine(lineToAppend); 
+                }
+            }
+        }   
+        
 
         try
         {
@@ -39,10 +52,11 @@ public class Journal{
     public Journal Load(string file){
         Journal journal = new Journal();
         using(var reader = new StreamReader(@$"{file}"))
-        {
-            while(!reader.EndOfStream)
+        {   
+            string headerLine = reader.ReadLine();
+            while ((!reader.EndOfStream)) 
             {
-                var values = reader.ReadLine().Split(',');
+                var values = reader.ReadLine().Split('|');
                 Entry entry = new Entry{
                     _date = values[0],
                     _prompt = values[1],

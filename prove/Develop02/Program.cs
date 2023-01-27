@@ -32,7 +32,7 @@ class Program
                 journal._entries = loadedJournal._entries;
                 break;
             case 4:
-                Console.Write($"Enter the name of the file to load: ");
+                Console.Write($"Enter the name of the file to save to: ");
                 file = Console.ReadLine();
                 journal.Save(file);
                 break;
