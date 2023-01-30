@@ -30,11 +30,11 @@ public class Fraction {
         _bottom = bottom;
     }
 
-    public void GetFractionString() {
+    public void DisplayFractionString() {
         Console.WriteLine($"{_top}/{_bottom}");
     }
 
-    public double GetDecimalValue(){
+    public double DisplayDecimalValue(){
         return (double)_top / (double)_bottom;
     }
 }
