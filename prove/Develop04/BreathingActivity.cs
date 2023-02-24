@@ -1,0 +1,35 @@
+public class BreathingActivity : Activity {
+
+    private const string breathIn = "Breathe in...";
+
+    private const string breathOut = "Now breathe out...";
+
+    private const int _breathInTime = 4;
+
+    private const int _breathOutTime = 6;
+
+    public BreathingActivity()
+    {
+        _name = "Breathing Activity";
+        _description = "relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing."; 
+    }
+
+    public void RunActivity(){
+        BeginActivity(DisplayBreathingActivity);
+    }
+
+    private void DisplayBreathingActivity()
+    {
+        var breaths = Math.Ceiling(_timeDuration/10.0);
+        while(breaths > 0){
+            Console.WriteLine();
+            Console.Write($"{breathIn}");
+            DisplayCountDown(_breathInTime);
+            Console.WriteLine();
+            Console.Write($"{breathOut}");
+            DisplayCountDown(_breathOutTime);
+            Console.WriteLine();
+            breaths--;
+        }
+    }
+}
