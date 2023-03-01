@@ -9,7 +9,7 @@ class Program
         Square shape1 = new Square("Purple", 6);
         shapes.Add(shape1);
 
-        RectangularShape shape2 = new RectangularShape("Pink", 10, 12);
+        RectangularShape shape2 = new RectanglularShape("Pink", 10, 12);
         shapes.Add(shape2);
 
         Circle shape3 = new Circle("Yellow", 20);
