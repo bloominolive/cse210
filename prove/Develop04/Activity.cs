@@ -45,7 +45,7 @@ public class Activity {
         Console.WriteLine();
     }
 
-    public void Spin(int timeInSeconds = _defaultSpinTime){
+    protected void Spin(int timeInSeconds = _defaultSpinTime){
         while(timeInSeconds > 0){
             Console.Write("|");
             Thread.Sleep(250);
@@ -63,7 +63,7 @@ public class Activity {
         }          
     }
 
-    public void DisplayCountDown(int timeInSeconds){
+    protected void DisplayCountDown(int timeInSeconds){
         while (timeInSeconds > 0){
             Console.Write($"{timeInSeconds}");
             Thread.Sleep(1000);
@@ -72,7 +72,7 @@ public class Activity {
         }
     }
 
-    public void BeginActivity(Action activity){
+    protected void BeginActivity(Action activity){
         DisplayIntroduction();
         SetDurationFromUserInput();
         DisplayGetReady();

@@ -1,8 +1,8 @@
 public class BreathingActivity : Activity {
 
-    private const string breathIn = "Breathe in...";
+    private const string _breathIn = "Breathe in...";
 
-    private const string breathOut = "Now breathe out...";
+    private const string _breathOut = "Now breathe out...";
 
     private const int _breathInTime = 4;
 
@@ -23,10 +23,10 @@ public class BreathingActivity : Activity {
         var breaths = Math.Ceiling(_timeDuration/10.0);
         while(breaths > 0){
             Console.WriteLine();
-            Console.Write($"{breathIn}");
+            Console.Write($"{_breathIn}");
             DisplayCountDown(_breathInTime);
             Console.WriteLine();
-            Console.Write($"{breathOut}");
+            Console.Write($"{_breathOut}");
             DisplayCountDown(_breathOutTime);
             Console.WriteLine();
             breaths--;
