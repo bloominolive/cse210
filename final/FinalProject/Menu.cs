@@ -4,7 +4,7 @@ public static class Menu {
 
     private static readonly Dictionary<int, string> _options = new Dictionary<int, string>(){
         {1, "New Game" },
-        {2, "View High Scores"},
+        {2, "View High Scores"}, 
         {3, "Quit"}
     };
 
