@@ -11,11 +11,13 @@ public class User {
     private int _highAccuracy;
     private int _highWordsPerMin;
 
-    public SetHighScore(int score){}
+    public void SetHighScore(int score){}
 
-    public SetHighAccuracy(int accuracy){}
-    public SetHighWordsPerMin(int wpm){}
-    public bool IsUserLoaded(){}
+    public void SetHighAccuracy(int accuracy){}
+    public void SetHighWordsPerMin(int wpm){}
+    public bool IsUserLoaded(){
+        return true;
+    }
     public void CreateUser(){}
     public void LoadUser(){}
     public void SaveUser(){}
