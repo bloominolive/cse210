@@ -1,5 +1,5 @@
 public static class Menu {
-    private static string _header="Let's begin! What would you like to do?";
+    private static string _header="What would you like to do?";
     private static string _footer="Please select an option to continue:";
     private static readonly Dictionary<int, string> _options = new Dictionary<int, string>()
     {
