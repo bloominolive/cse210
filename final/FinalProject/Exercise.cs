@@ -1,11 +1,10 @@
 public class Exercise {
-
-    protected List<string> _lines;
-    
+    protected List<string> _lines;    
     protected int _numberOfLines;
-
-    public Exercise(){
-        _lines = new List<string> {
+    public Exercise()
+    {
+        _lines = new List<string> 
+        {
             "cat act tac coat oat",
             "ship his sip hip ship",
             "mount count tout sound round",
@@ -32,40 +31,51 @@ public class Exercise {
         };
         _numberOfLines = 8;
    }
-
-    public string DisplayLine(){
+    public string DisplayLine()
+    {
         var line = GetRandomLine();
         Console.WriteLine(line);
         return line;
     }
-
-    public string GetRandomLine(){
+    public string GetRandomLine()
+    {
         Random rnd = new Random();
         int randomIndex = rnd.Next(_lines.Count);
         return _lines[randomIndex];
     }
-
-    public virtual int CalculateScore(double wpm, int accuracy){
+    public int GetNumberOfLines()
+    {
+        return _numberOfLines;
+    }
+    public virtual int GetAndDisplayScore(double wpm, decimal accuracy)
+    {
         var score = 0;
-        if(wpm > 40 && wpm <= 54){
+        if(wpm > 40 && wpm <= 54)
+        {
             score = 20;
         }
-        else if(wpm > 55){
+        else if(wpm > 55)
+        {
             score = 30;
         }
-
-        if(accuracy > 70 && accuracy <= 89){
+        if(accuracy > 70 && accuracy <= 89)
+        {
             score += 20;
         }
-        else if(accuracy > 90 && accuracy <= 99){
+        else if(accuracy > 90 && accuracy <= 99)
+        {
             score += 30;
         }
-        else if(accuracy == 100){
+        else if(accuracy == 100)
+        {
             score += 40;
-        }
-
+        }        
+        DisplayScore(score);
         return score;
     }
-
-
+     protected void DisplayScore(int score)
+     {
+        Console.WriteLine($"Your score is: {score}. Great Job!");
+        Console.WriteLine();
+    }
 }

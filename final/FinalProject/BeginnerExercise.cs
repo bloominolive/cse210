@@ -1,9 +1,8 @@
-public class BeginnerExercise: Exercise {
-
-     
+public class BeginnerExercise: Exercise {     
    public BeginnerExercise():base()
    {
-        _lines = new List<string> {
+        _lines = new List<string> 
+        {
             "ask had lad sag gas",
             "dad sad ash has dash",
             "lad had flag shag lags",
@@ -31,24 +30,26 @@ public class BeginnerExercise: Exercise {
         };
         _numberOfLines = 5;
    }
-
-    public override int CalculateScore(double wpm, int accuracy){
+    public override int GetAndDisplayScore(double wpm, decimal accuracy)
+    {
         var score = 0;
-        if(wpm > 20){
+        if(wpm > 20)
+        {
             score = 10;
         }
-
-        if(accuracy > 70 && accuracy <= 89){
+        if(accuracy > 70 && accuracy <= 89)
+        {
             score += 10;
         }
-        else if(accuracy > 90 && accuracy <= 99){
+        else if(accuracy > 90 && accuracy <= 99)
+        {
             score += 20;
         }
-        else if(accuracy == 100){
+        else if(accuracy == 100)
+        {
             score += 30;
         }
-
+        DisplayScore(score);
         return score;
     }
-
 }

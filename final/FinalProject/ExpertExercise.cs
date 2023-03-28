@@ -1,7 +1,8 @@
-public class ExpertExercise : Exercise
-{    
-   public ExpertExercise(){
-        _lines = new List<string> {
+public class ExpertExercise : Exercise{    
+   public ExpertExercise()
+   {
+        _lines = new List<string> 
+        {
             "salad ask sad all lad",
             "trend end lend send bend",    
             "humor rumor tumor tumor hum",    
@@ -30,36 +31,43 @@ public class ExpertExercise : Exercise
             "flute lute mute cute chute"
         };
         _numberOfLines = 10;
-   }
-  
-    public override int CalculateScore(double wpm, int accuracy){
+   }  
+    public override int GetAndDisplayScore(double wpm, decimal accuracy)
+    {
         var score = 0;
-        if(wpm > 50 && wpm <= 59){
+        if(wpm > 50 && wpm <= 59)
+        {
             score = 30;
         }
-        else if(wpm > 60 && wpm <= 69){
+        else if(wpm > 60 && wpm <= 69)
+        {
             score = 40;
         }
-        else if(wpm > 70 && wpm <= 79){
+        else if(wpm > 70 && wpm <= 79)
+        {
             score = 60;
         }
-        else if(wpm > 80 && wpm <= 100){
+        else if(wpm > 80 && wpm <= 100)
+        {
             score = 90;
         }
-        else if(wpm > 100){
+        else if(wpm > 100)
+        {
             score = 500;
         }
-
-        if(accuracy > 70 && accuracy <= 89){
+        if(accuracy > 70 && accuracy <= 89)
+        {
             score += 30;
         }
-        else if(accuracy > 90 && accuracy <= 99){
+        else if(accuracy > 90 && accuracy <= 99)
+        {
             score += 40;
         }
-        else if(accuracy == 100){
+        else if(accuracy == 100)
+        {
             score += 50;
         }
-
+        DisplayScore(score);
         return score;
     }
 }

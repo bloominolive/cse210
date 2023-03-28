@@ -1,32 +1,20 @@
 using System;
-
-class Program
-{
+class Program{
     static void Main(string[] args)
     {
         var user = new User();
         var highScores = new HighScores();
         var game = new Game();
-        //try load highscores
-
         var quit = false;
-        while (!quit){
+        Console.WriteLine("Welcome to the typing game!");
+        user = user.CreateOrLoadUser();
+        while (!quit)
+        {
             var input = Menu.GetInput();
-            switch (input){
+            switch (input)
+            {
                 case "1":
                     Console.Clear();
-                    if (!user.IsUserLoaded()){
-                        input = UserMenu.GetInput();
-                        switch(input)
-                        {
-                            case "1":
-                                user.CreateUser();
-                            break;
-                            case "2":
-                                user.LoadUser();
-                            break;
-                        }
-                    }
                     input = DifficultyMenu.GetInput();
                     Exercise exercise;
                     switch(input)
@@ -44,22 +32,35 @@ class Program
                             exercise = new Exercise();
                         break;
                     }
-                    game.StartGame();
-                    var randomLine = exercise.DisplayLine();
-                    var userLine = Console.ReadLine();
-                    game.SetLine(randomLine,userLine);
+                    var lines = exercise.GetNumberOfLines();
+                    game.StartGame(lines);
+                    while (lines > 0)
+                    {
+                        var randomLine = exercise.DisplayLine();
+                        var userLine = Console.ReadLine();
+                        game.SetLine(randomLine,userLine);
+                        lines--;
+                    }
                     game.CalculateAndDisplayScore();
+                    var wpm = game.GetWordsPerMin();
+                    var accuracy = game.GetAccuracy();
+                    var score = exercise.GetAndDisplayScore(wpm, accuracy);
+                    user.SetUserStats(score, accuracy, wpm);
+                    highScores.VerifyAndSetHighScore(user.GetUserName(), score);
                     break;
                 case "2":
                     Console.Clear();
                     HighScoreMenu.DisplayHighScores(highScores);
                     break;
                 case "3":
-                    //save highscores
-                    //save user
+                    Console.Clear();
+                    user.DisplayUserInfo();
+                    break;
+                case "4":
+                    highScores.SaveHighScores();
+                    user.SaveUser();
                     quit = true;
                     break;
-
             }
         }
     }
