@@ -85,8 +85,8 @@ public class User {
     public void DisplayUserInfo()
     {
         Console.WriteLine($"Name: {_name}");
-        Console.WriteLine($"Highest Words Per Minute {_highWordsPerMin}");
-        Console.WriteLine($"Highest Accuracy: {_highAccuracy}");
+        Console.WriteLine($"Highest Words Per Minute: {Math.Round(_highWordsPerMin, 2)}");
+        Console.WriteLine($"Highest Accuracy: {Math.Round(_highAccuracy, 2)}");
         Console.WriteLine($"High Score: {_highScore}");
     }
 }
