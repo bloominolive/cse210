@@ -32,9 +32,9 @@ public class Game{
     }
     public void CalculateWordsPerMin(){
         var words = 0;
-        foreach(KeyValuePair<string, string> pair in _lines)
+        foreach(var value in _lines.Select(i => i.Value) )
         {
-            words += pair.Value.Split(' ').Length;
+            words += value.Split(' ').Length;
         }
         _wordsPerMin = words / (_endTime - _startTime).TotalMinutes;
     }
@@ -50,7 +50,7 @@ public class Game{
     {
         _endTime = DateTime.UtcNow;
     }
-    public void CalculateAndDisplayScore()
+    public void CalculateAndDisplayStats()
     {
         SetEndTime();
         CalculateWordsPerMin();

@@ -32,16 +32,16 @@ class Program{
                             exercise = new Exercise();
                         break;
                     }
-                    var lines = exercise.GetNumberOfLines();
-                    game.StartGame(lines);
-                    while (lines > 0)
+                    var numberOfLines = exercise.GetNumberOfLines();
+                    game.StartGame(numberOfLines);
+                    while (numberOfLines > 0)
                     {
                         var randomLine = exercise.DisplayLine();
                         var userLine = Console.ReadLine();
                         game.SetLine(randomLine,userLine);
-                        lines--;
+                        numberOfLines--;
                     }
-                    game.CalculateAndDisplayScore();
+                    game.CalculateAndDisplayStats();
                     var wpm = game.GetWordsPerMin();
                     var accuracy = game.GetAccuracy();
                     var score = exercise.GetAndDisplayScore(wpm, accuracy);
